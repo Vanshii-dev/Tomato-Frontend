@@ -7,7 +7,7 @@ export const StoreContext = createContext(null);
 const StoreContextProvider = (props) => {
 
     // ✅ Backend URL (Vercel or Local fallback)
-    const url = import.meta.env.VITE_API_URL || "http://localhost:8000";
+    const url = (import.meta.env.VITE_API_URL || "http://localhost:8000").replace(/\/+$/, "");
 
     const [food_list, setFoodList] = useState(defaultFoodList);
     const [cartItems, setCartItems] = useState({});
